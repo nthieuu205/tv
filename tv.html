@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thư viện điện tử</title>
+    <link rel="stylesheet" href="tv.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="assets/logo.png" alt="Logo Thư viện">
+            </div>
+            <div class="search-bar">
+                <form id="search-form">
+                    <input type="text" id="search-query" placeholder="Tìm kiếm sách..." required>
+                    <button type="submit">Tìm kiếm</button>
+                </form>
+            </div>
+            <div class="login-button">
+                <button onclick="openLoginForm()">Đăng nhập</button>
+            </div>
+        </div>
+    </header>
+    
+    <div id="loginForm" class="login-form" style="display: none;">
+        <div class="login-form-container">
+            <span onclick="closeLoginForm()" class="close">&times;</span>
+            <h2>Đăng nhập</h2>
+            <form>
+                <label for="username">Tên đăng nhập</label>
+                <input type="text" id="username" placeholder="Nhập tên đăng nhập" required>
+                <label for="password">Mật khẩu</label>
+                <input type="password" id="password" placeholder="Nhập mật khẩu" required>
+                <button type="button" onclick="login()">Đăng nhập</button>
+            </form>
+        </div>
+    </div>
+    
+    <div class="main-container">
+        <aside class="sidebar">
+            <ul>
+                <li><a href="#" onclick="showAllBooks()">Sách</a></li>
+                <li><a href="tlh.html">Tài liệu học</a></li>
+                <li><a href="magazine.html">Tạp chí</a></li>
+                <li><button class="add-button" onclick="toggleUtility()">Tiện ích</button></li>
+            </ul>
+        </aside>
+        
+        <div class="utilities-menu" id="utility-menu" style="display: none;">
+            <button onclick="showForm('addBookForm')">Thêm sách</button>
+            <button onclick="showForm('borrowBookForm')">Mượn sách</button>
+            <button onclick="showForm('return-book-form')">Trả sách</button>
+        </div>
+        
+        <section class="content">
+            <div class="banner">
+                <img src="assets/11.jpg" alt="Banner Image">
+            </div>
+            
+            <!-- Form thêm sách -->
+            <div id="addBookForm" class="add-book-form" style="display: none;">
+                <h2>Thêm sách mới</h2>
+                <form id="add-book-form-element">
+                    <label for="book-title">Tên sách:</label>
+                    <input type="text" id="book-title" placeholder="Nhập tên sách" required>
+                    <label for="book-author">Tác giả:</label>
+                    <input type="text" id="book-author" placeholder="Nhập tên tác giả" required>
+                    <label for="book-genre">Thể loại:</label>
+                    <select id="book-genre" required>
+                        <option value="Tiểu thuyết">Tiểu thuyết</option>
+                        <option value="Khoa học">Khoa học</option>
+                        <option value="Văn học">Văn học</option>
+                        <option value="Kỹ thuật">Kỹ thuật</option>
+                        <option value="Khác">Khác</option>
+                    </select>
+                    <button type="submit">Thêm sách</button>
+                </form>
+            </div>
+
+            <!-- Form mượn sách -->
+            <div id="borrowBookForm" class="borrow-book-form" style="display: none;">
+                <h2>Mượn sách</h2>
+                <form>
+                    <label for="borrowBookTitle">Tên sách:</label>
+                    <input type="text" id="borrowBookTitle" placeholder="Nhập tên sách" required>
+                    <button type="button" onclick="borrowBook(borrowBookTitle.value)">Mượn sách</button>
+                </form>
+            </div>
+
+            
+            <!-- Form trả sách -->
+            <div id="return-book-form" class="return-book-form" style="display: none;">
+                <h2>Trả sách</h2>
+                <form>
+                    <label for="returnBookTitle">Tên sách:</label>
+                    <input type="text" id="returnBookTitle" placeholder="Nhập tên sách" required>
+                    <button type="button" onclick="returnBook()">Trả sách</button>
+                </form>
+            </div>
+            
+            <div class="book-section">
+                <h2>Danh sách các loại sách</h2>
+                <div class="book-list" id="search-results">
+                    <button id="back-button" style="display: none;" onclick="showAllBooks()">Quay lại</button>
+                    <div class="book-item">
+                        <img src="assets/bt.jpg" alt="" onclick="toggleInfo()">
+                        <h3>Bầu trời năm ấy</h3>
+                    </div>
+                    <div class="book-item">
+                        <img src="assets/de.jpg" alt="">
+                        <h3>Dế mèn pl kí</h3>
+                    </div>
+                    <div class="book-item">
+                        <img src="assets/dnt.jpg" alt="dnt">
+                        <h3>Đắc nhân tâm</h3>
+                    </div>
+                    <div class="book-item">
+                        <img src="assets/doraemon.jpg" alt="">
+                        <h3>doraemon</h3>
+                    </div>
+                    <div class="book-item">
+                        <img src="assets/dsa.jpg" alt="">
+                        <h3>ctdlvgt</h3>
+                    </div>
+                    <div class="book-item">
+                        <img src="assets/hp.jpg" alt="">
+                        <h3>Harry Potter</h3>
+                    </div>
+                    <div class="book-item">
+                        <img src="assets/html.jpg" alt="">
+                        <h3>HTML5 & CSS3</h3>
+                    </div>
+                    <div class="book-item">
+                        <img src="assets/hv.jpg" alt="">
+                        <h3>Tiểu thuyết 1</h3>
+                    </div>
+                    <div class="book-item">
+                        <img src="assets/javascript.jpg" alt="">
+                        <h3>javascript</h3>
+                    </div>
+                    <div class="book-item">
+                        <img src="assets/ktlt.jpg" alt="">
+                        <h3>ktlt</h3>
+                    </div>
+                    <div class="book-item">
+                        <img src="assets/ls.jpg" alt="">
+                        <h3>lt và cs</h3>
+                    </div>
+                    <div class="book-item">
+                        <img src="assets/ngk.jpg" alt="">
+                        <h3>nhà giả kim</h3>
+                    </div>
+                    <div class="book-item">
+                        <img src="assets/nmt.jpg" alt="">
+                        <h3>Tiểu thuyết 2</h3>
+                    </div>
+                    <div class="book-item">
+                        <img src="assets/nvscc.jpg" alt="">
+                        <h3>Tiểu thuyết 3</h3>
+                    </div>
+                    <div class="book-item">
+                        <img src="assets/python.jpg" alt="">
+                        <h3>python</h3>
+                    </div>
+                    <div class="book-item">
+                        <img src="assets/ta.jpg" alt="">
+                        <h3>TA chuyên ngành</h3>
+                    </div>
+                    <div class="book-item">
+                        <img src="assets/truyen.jpg" alt="">
+                        <h3>Tiểu thuyết 4</h3>
+                    </div>
+                    <div class="book-item">
+                        <img src="assets/tt.jpg" alt="">
+                        <h3>Tiểu thuyết 5</h3>
+                    </div>
+                </div>
+            </div>                    
+        </section>
+    </div>
+
+    <section class="news-section">
+        <h2>Tin tức mới</h2>
+        <div class="news-list">
+            <div class="news-item">
+                <h3>Khuyến mãi sách tháng 11</h3>
+                <p>Nhận ưu đãi giảm 20% khi mua sách online từ 01/11 đến 30/11!</p>
+            </div>
+            <div class="news-item">
+                <h3>Ra mắt sách mới</h3>
+                <p>Thư viện vừa bổ sung 50 đầu sách mới về các lĩnh vực Khoa học, Kỹ thuật và Văn học.</p>
+            </div>
+            <div class="news-item">
+                <h3>Cuộc thi đọc sách trực tuyến</h3>
+                <p>Tham gia cuộc thi đọc sách trực tuyến và có cơ hội nhận nhiều phần quà hấp dẫn!</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Thư viện điện tử © 2024</p>
+    </footer>
+    <script src="tv.js"></script>
+</body>
+</html>

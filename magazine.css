@@ -1,0 +1,92 @@
+
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        background: #223045;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+      }
+      .main-container {
+        display: flex;
+      }
+      .sidebar {
+        width: 200px;
+        background: #f4f4f4;
+        padding: 15px;
+      }
+      .sidebar ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      .sidebar li {
+        margin: 10px 0;
+      }
+      .sidebar a {
+        text-decoration: none;
+        color: #333;
+      }
+      .sidebar a.active {
+        font-weight: bold;
+        color: #223045;
+      }
+      .content {
+        flex: 1;
+        padding: 20px;
+      }
+      footer {
+        text-align: center;
+        padding: 10px;
+        background: #223045;
+        color: white;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+      }
+      .magazine-section {
+        padding: 20px;
+      }
+      .magazine-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: flex-start;
+      }
+      .magazine-item {
+        background: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 10px;
+        width: calc(33.33% - 20px);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+      .magazine-item img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 5px;
+      }
+      .magazine-item h3 {
+        font-size: 18px;
+        margin: 10px 0;
+      }
+      .magazine-item p {
+        font-size: 14px;
+        color: #666;
+      }
+      .magazine-item img{
+        
+      }
+      .magazine-item a{
+        text-decoration: none;
+        color: #333;
+        font-size: 14px;
+      }
+      .magazine-item a :hover{
+        color: crimson;
+        font-size: 20px;
+
+      }

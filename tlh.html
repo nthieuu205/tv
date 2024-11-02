@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tài liệu học tập</title>
+    <link rel="stylesheet" href="tv.css">
+    <style>
+        .banner1{
+            width: 90%;
+            height: 300px;
+            border-radius: 10px;
+            margin: 0 auto;
+        }
+        .banner1 img {
+            width: 100%;
+            height: auto;
+        }
+        .featured-documents {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        document-grid {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .document-item {
+            background-color: #f9f9f9;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 200px;
+        }
+
+        .document-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .document-item p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .document-item a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            margin-top: 1rem;
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+   
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="assets/logo.png" alt="Logo Thư viện">
+            </div>
+            <div class="search-bar">
+                <form id="search-form">
+                    <input type="text" id="search-query" placeholder="Tìm kiếm sách..." required>
+                    <button type="submit">Tìm kiếm</button>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <aside class="sidebar">
+            <ul>
+                <li><a href="tv.html" onclick="showAllBooks()">Sách</a></li>
+                <li><a href="tlh.html" class="active">Tài liệu học</a></li>
+                <li><a href="magazine.html">Tạp chí</a></li>
+                <li><button class="add-button" onclick="toggleUtility()">Tiện ích</button></li>
+            </ul>
+        </aside>
+        <div class="utilities-menu" id="utility-menu" style="display: none;">
+            <button onclick="showForm('addBookForm')">Thêm sách</button>
+            <button onclick="showForm('borrowBookForm')">Mượn sách</button>
+            <button onclick="showForm('return-book-form')">Trả sách</button>
+        </div>
+        <section class="content">
+            <div class="banner1">
+                <img src="assets/3.jpg" alt="Banner Image">
+            </div>
+            <!-- Form thêm sách -->
+            <div id="addBookForm" class="add-book-form" style="display: none;">
+                <h2>Thêm sách mới</h2>
+                <form id="add-book-form-element">
+                    <label for="book-title">Tên sách:</label>
+                    <input type="text" id="book-title" placeholder="Nhập tên sách" required>
+                    <label for="book-author">Tác giả:</label>
+                    <input type="text" id="book-author" placeholder="Nhập tên tác giả" required>
+                    <label for="book-genre">Thể loại:</label>
+                    <select id="book-genre" required>
+                        <option value="Tiểu thuyết">Tiểu thuyết</option>
+                        <option value="Khoa học">Khoa học</option>
+                        <option value="Văn học">Văn học</option>
+                        <option value="Kỹ thuật">Kỹ thuật</option>
+                        <option value="Khác">Khác</option>
+                    </select>
+                    <button type="submit">Thêm sách</button>
+                </form>
+            </div>
+
+            <!-- Form mượn sách -->
+            <div id="borrowBookForm" class="borrow-book-form" style="display: none;">
+                <h2>Mượn sách</h2>
+                <form>
+                    <label for="borrowBookTitle">Tên sách:</label>
+                    <input type="text" id="borrowBookTitle" placeholder="Nhập tên sách" required>
+                    <button type="button" onclick="borrowBook(borrowBookTitle.value)">Mượn sách</button>
+                </form>
+            </div>
+
+            <!-- Form trả sách -->
+            <div id="return-book-form" class="return-book-form" style="display: none;">
+                <h2>Trả sách</h2>
+                <form>
+                    <label for="returnBookTitle">Tên sách:</label>
+                    <input type="text" id="returnBookTitle" placeholder="Nhập tên sách" required>
+                    <button type="button" onclick="returnBook()">Trả sách</button>
+                </form>
+            </div>
+
+        </section>
+    
+        <!-- Tài liệu nổi bật -->
+        <div class="book-section">
+            <h2>Tài liệu nổi bật</h2>
+            <div class="document-grid">
+                <div class="document-item">
+                    <h3>Toán rời rạc</h3>
+                    <p>Tác giả: Nguyễn Văn A</p>
+                    <a href="assets/Chương 1 - Logic.pdf">Tải xuống</a>
+                </div>
+                <div class="document-item">
+                    <h3>Lập trình C++</h3>
+                    <p>Tác giả: Trần Văn B</p>
+                    <a href="/assets/Bai tap 01- Thuc hanh C++.pdf">Tải xuống</a>
+                </div>
+                <div class="document-item">
+                    <h3>Cấu trúc dữ liệu và giải thuật</h3>
+                    <p>Tác giả: Thomas H</p>
+                    <a href="/assets/Thomas H - Introduction-to-algorithms-3rd-edition.pdf">Tải xuống</a>
+                </div>
+                <div class="document-item">
+                    <h3>Lập trình hướng đối tượng</h3>
+                    <p>Tác giả: Lê Thị C</p>
+                    <a href="/assets/OOP Bai-09.pdf">Tải xuống</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>Thư viện điện tử © 2024</p>
+    </footer>
+    <script src="tv.js"></script>
+</body>
+</html>
